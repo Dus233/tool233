@@ -3,35 +3,23 @@
 #### 介绍
 QiuMoTool,免费开源小工具，仅供学习，请勿做违法违规的事情，一切后果作者概不负责。
 
-#### 软件架构
-软件架构说明
-
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+直切丢到服务器即可
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  php版本自测，php需安装exif依赖
+![输入图片说明](https://images.gitee.com/uploads/images/2021/0825/100944_87dcd2b4_7382579.png "SA%5PQT0M]2KXOZ)1PLZ3`N.png")
+2.  api文件夹中的class文件需要配置一下key（仅获取头像接口需要用到，不用可不配置）
 
-#### 参与贡献
+```
+<?php
+/**
+ * 聚合api
+ */
+class api {
+    public $key="这里是key";
+```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
