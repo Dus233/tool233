@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>跳转资源 - QiuMoTool</title>
+		<link rel="icon" href="favicon.ico" type="image/ico">
+		<meta name="author" content="QiuMo">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/materialdesignicons.min.css" rel="stylesheet">
+		<link href="css/style.min.css" rel="stylesheet">
+		<!--对话框-->
+		<link rel="stylesheet" href="js/jconfirm/jquery-confirm.min.css">
+	</head>
+
+	<body>
+		<div class="container-fluid p-t-15">
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card">
+						<div class="card-header">
+							<h4>跳转资源</h4>
+						</div>
+						<div class="card-body">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="请输入资源ID..." id="appid">
+								<span class="input-group-btn">
+									<button class="btn btn-default" id="check" type="button">跳转</button>
+								</span>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!--对话框-->
+		<script src="js/jconfirm/jquery-confirm.min.js"></script>
+		<!--消息提示-->
+		<script src="js/bootstrap-notify.min.js"></script>
+		<script type="text/javascript" src="js/lightyear.js"></script>
+		<script type="text/javascript" src="js/main.min.js"></script>
+		<script type="text/javascript">
+			$("#check").click(function() {
+				window.parent.game($("#appid").val());
+			});
+		</script>
+	</body>
+</html>
