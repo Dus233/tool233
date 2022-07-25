@@ -23,13 +23,15 @@ if($action=='getavatar'){
 //获取关注前十
 if($action=='getfriendship'){
     $userid=$_REQUEST['userid'];
-	$res=$api->getFriendship($userid);
+	$count=$_REQUEST['count'];
+	$res=$api->getFriendship($userid,$count);
 	ajaxReturn($res);
 }
 //获取收藏前十
 if($action=='getfavorite'){
     $userid=$_REQUEST['userid'];
-	$res=$api->getFavorite($userid);
+	$count=$_REQUEST['count'];
+	$res=$api->getFavorite($userid,$count);
 	ajaxReturn($res);
 }
 

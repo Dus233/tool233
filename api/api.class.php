@@ -43,12 +43,15 @@ class api {
 	 * 获取关注前十
 	 * @param {Object} $userid 用户id
 	 */
-	public function getFriendship($userid){
+	public function getFriendship($userid,$count = 10){
 		//格式验证
 		if(empty($userid)){
 			return array('code'=>500,'msg'=>'用户ID不可为空');
 		}
-		$url = "http://floor.huluxia.com/friendship/following/list/ANDROID/2.0?user_id=".$userid."&count=10"; //api
+		if($count>50){
+			return array('code'=>500,'msg'=>'查询数量不能大于50');
+		}
+		$url = "http://floor.huluxia.com/friendship/following/list/ANDROID/2.0?user_id=".$userid."&count=".$count; //api
         $res = json_decode($this->get_url($url), true);
         if(empty($res)){
 			return array('code'=>500,'msg'=>'未知异常');
@@ -63,12 +66,15 @@ class api {
 	 * 获取收藏前十
 	 * @param {Object} $userid 用户id
 	 */
-	public function getFavorite($userid){
+	public function getFavorite($userid,$count = 10){
 		//格式验证
 		if(empty($userid)){
 			return array('code'=>500,'msg'=>'用户ID不可为空');
 		}
-		$url = "http://floor.huluxia.com/post/favorite/list/ANDROID/2.0?count=10&user_id=".$userid; //api
+		if($count>50){
+			return array('code'=>500,'msg'=>'查询数量不能大于50');
+		}
+		$url = "http://floor.huluxia.com/post/favorite/list/ANDROID/2.0?count=".$count."&user_id=".$userid; //api
 	    $res = json_decode($this->get_url($url), true);
 	    if(empty($res)){
 			return array('code'=>500,'msg'=>'未知异常');

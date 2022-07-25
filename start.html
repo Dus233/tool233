@@ -38,12 +38,25 @@
 							<h4>获取关注列表</h4>
 						</div>
 						<div class="card-body">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="请输入用户ID..." id="userid">
-								<span class="input-group-btn">
-									<button class="btn btn-default" id="check" type="button">查询</button>
-								</span>
-							</div>
+							<form onsubmit="return false;">
+								<div class="form-group row">
+									<label for="inputEmail3" class="col-sm-1 col-form-label">用户ID</label>
+									<div class="col-sm-11">
+										<input type="text" class="form-control" placeholder="请输入用户ID..." id="userid">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="inputEmail3" class="col-sm-1 col-form-label">查询数量</label>
+									<div class="col-sm-11">
+										<input type="text" class="form-control" placeholder="请输入查询数量..." id="count">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-10">
+										<button  id="check" class="btn btn-primary btn-block">查 询</button>
+									</div>
+								</div>
+							</form>
 						</div>
 						<div class="card-body" style="display: none;" id="table">
 							<table class="table table-bordered table-hover">
@@ -83,10 +96,24 @@
 				}
 			}
 			$("#check").click(function() {
+				let userid = $("#userid").val();
+				if(userid == ''){
+					lightyear.notify('ID不可为空', 'danger', 1000, 'mdi mdi-emoticon-happy', 'top', 'center');
+					return;
+				}
+				let count = $("#count").val();
+				if(count == ''){
+					count = 10
+				}
+				if(count > 50){
+					lightyear.notify('一次最多查询50条', 'danger', 1000, 'mdi mdi-emoticon-happy', 'top', 'center');
+					return;
+				}
 				lightyear.loading('show');
 				$.get("./api/postid.php", {
 					"action": "getfriendship",
-					"userid": $("#userid").val()
+					"userid": userid,
+					"count": count
 				}, function(res) {
 					lightyear.loading('hide');
 					if (res.code == 200) {
